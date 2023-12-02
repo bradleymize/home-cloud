@@ -1,0 +1,14 @@
+# IntelliJ / IDE
+.idea/
+
+# Ignore actual nginx config + certificates
+*.pem
+nginx/docker-compose.yaml
+nginx/default.conf
+nginx/https.conf
+
+# Ignore actual ownCloud config
+ownCloud/values.yaml
+
+# Ignore actual xwiki config
+xwiki/values.yaml

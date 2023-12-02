@@ -1,0 +1,16 @@
+owncloud:
+  subUrl: /cloud
+  domain: domain.com
+  overwriteWebroot: /cloud
+  overwriteCliUrl: https://domain.com/cloud
+  forwardedForHeaders:
+    - X-Forwarded-For
+  trustedDomains:
+    - localhost
+    - domain.com
+    - minikube
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "4g"

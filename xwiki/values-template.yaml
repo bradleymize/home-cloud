@@ -1,0 +1,28 @@
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    kubernetes.io/ingress.class: null
+    nginx.ingress.kubernetes.io/affinity: cookie
+    nginx.ingress.kubernetes.io/session-cookie-name: XNGINX
+    nginx.ingress.kubernetes.io/session-cookie-expires: "1800"
+  hosts:
+    - host: minikube
+      paths:
+        - path: /xwiki
+          pathType: Prefix
+
+service:
+  type: LoadBalancer
+
+extraEnvVars:
+  - name: CONTEXT_PATH
+    value: xwiki
+
+probes:
+  startup:
+    enabled: false
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
