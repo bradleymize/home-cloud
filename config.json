@@ -1,0 +1,11 @@
+{
+  "ownCloud": {
+    "context": "cloud"
+  },
+  "xwiki": {
+    "context": "xwiki"
+  },
+  "minikube": {},
+  "nfs": {},
+  "certificate": {}
+}
