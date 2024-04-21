@@ -34,6 +34,7 @@ function main() {
 
   banner "Installing nfs"
   banner "Installing client certificates"
+  banner "Installing docker"
   banner "Installing kubernetes"
   banner "Installing helm"
   banner "Installing minikube"

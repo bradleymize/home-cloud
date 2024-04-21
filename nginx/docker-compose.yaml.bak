@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  nginx:
+    image: "nginx:latest"
+    volumes:
+#      - ./default.conf:/etc/nginx/conf.d/default.conf
+#      - ./k8s.bradleymize.com.cert.pem:/etc/nginx/ssl/k8s.bradleymize.com.cert.pem
+#      - ./k8s.bradleymize.com.key.pem:/etc/nginx/ssl/k8s.bradleymize.com.key.pem
+
+      - ./cloud/casaos.conf:/etc/nginx/conf.d/casaos.conf
+      - /etc/letsencrypt/live/casaos.bradleymize.com/cert.pem:/etc/nginx/ssl/casaos.bradleymize.com.cert.pem
+      - /etc/letsencrypt/live/casaos.bradleymize.com/privkey.pem:/etc/nginx/ssl/casaos.bradleymize.com.key.pem
+
+      - ./cloud/emby.conf:/etc/nginx/conf.d/emby.conf
+      - /etc/letsencrypt/live/emby.bradleymize.com/cert.pem:/etc/nginx/ssl/emby.bradleymize.com.cert.pem
+      - /etc/letsencrypt/live/emby.bradleymize.com/privkey.pem:/etc/nginx/ssl/emby.bradleymize.com.key.pem
+
+      - ./cloud/qbt.conf:/etc/nginx/conf.d/qbt.conf
+      - /etc/letsencrypt/live/qbt.bradleymize.com/cert.pem:/etc/nginx/ssl/qbt.bradleymize.com.cert.pem
+      - /etc/letsencrypt/live/qbt.bradleymize.com/privkey.pem:/etc/nginx/ssl/qbt.bradleymize.com.key.pem
+
+      - ./cloud/medusa.conf:/etc/nginx/conf.d/medusa.conf
+      - /etc/letsencrypt/live/medusa.bradleymize.com/cert.pem:/etc/nginx/ssl/medusa.bradleymize.com.cert.pem
+      - /etc/letsencrypt/live/medusa.bradleymize.com/privkey.pem:/etc/nginx/ssl/medusa.bradleymize.com.key.pem
+    network_mode: host

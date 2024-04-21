@@ -1,0 +1,90 @@
+name: nginx
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - type: bind
+        source: /home/brad/git/home-cloud/nginx/cloud/casaos.conf
+        target: /etc/nginx/conf.d/casaos.conf
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /etc/letsencrypt/live/casaos.bradleymize.com/cert.pem
+        target: /etc/nginx/ssl/casaos.bradleymize.com.cert.pem
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /etc/letsencrypt/live/casaos.bradleymize.com/privkey.pem
+        target: /etc/nginx/ssl/casaos.bradleymize.com.key.pem
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /home/brad/git/home-cloud/nginx/cloud/emby.conf
+        target: /etc/nginx/conf.d/emby.conf
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /etc/letsencrypt/live/emby.bradleymize.com/cert.pem
+        target: /etc/nginx/ssl/emby.bradleymize.com.cert.pem
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /etc/letsencrypt/live/emby.bradleymize.com/privkey.pem
+        target: /etc/nginx/ssl/emby.bradleymize.com.key.pem
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /home/brad/git/home-cloud/nginx/cloud/qbt.conf
+        target: /etc/nginx/conf.d/qbt.conf
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /etc/letsencrypt/live/qbt.bradleymize.com/cert.pem
+        target: /etc/nginx/ssl/qbt.bradleymize.com.cert.pem
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /etc/letsencrypt/live/qbt.bradleymize.com/privkey.pem
+        target: /etc/nginx/ssl/qbt.bradleymize.com.key.pem
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /home/brad/git/home-cloud/nginx/cloud/medusa.conf
+        target: /etc/nginx/conf.d/medusa.conf
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /etc/letsencrypt/live/medusa.bradleymize.com/cert.pem
+        target: /etc/nginx/ssl/medusa.bradleymize.com.cert.pem
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /etc/letsencrypt/live/medusa.bradleymize.com/privkey.pem
+        target: /etc/nginx/ssl/medusa.bradleymize.com.key.pem
+        bind:
+          create_host_path: true
+    ports: []
+    devices: []
+    cap_add: []
+    command: []
+    environment: []
+    network_mode: host
+    privileged: false
+    restart: unless-stopped
+    container_name: ""
+    hostname: ""
+    cpu_shares: 90
+    deploy:
+      resources:
+        limits:
+          memory: 32021M
+x-casaos:
+  hostname: ""
+  scheme: http
+  index: /
+  port_map: ""
+  author: self
+  category: self
+  icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/NginxProxyManager/icon.png
+  title:
+    custom: Nginx

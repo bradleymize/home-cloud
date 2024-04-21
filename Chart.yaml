@@ -1,0 +1,17 @@
+apiVersion: v2
+description: Helm chart for a home-cloud setup
+name: home-cloud
+version: 0.0.1
+type: application
+dependencies:
+  - name: xwiki
+    repository: https://xwiki-contrib.github.io/xwiki-helm
+    version: 1.2.4
+    condition: xwiki.enabled
+  - name: owncloud
+    repository: https://charts.bitnami.com/bitnami
+    version: 12.2.11
+    condition: owncloud.enabled
+  - name: wazuh
+    version: 0.0.1
+    condition: wazuh.enabled
